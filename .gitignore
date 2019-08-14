@@ -1,0 +1,13 @@
+
+auth-demo-gateway/.vs/
+
+auth-demo-gateway/bin/
+
+auth-demo-gateway-api/bin/
+
+auth-demo-gateway-api-2/bin/
+auth-demo-gateway/obj/
+
+auth-demo-gateway-api/obj/
+
+auth-demo-gateway-api-2/obj/

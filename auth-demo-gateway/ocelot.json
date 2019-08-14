@@ -1,0 +1,36 @@
+{
+  "ReRoutes": [
+    {
+      "UseServiceDiscovery": true,
+      "UpstreamPathTemplate": "/userapi/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "AzureADJwtBearer",
+        "AllowedScopes": []
+      },
+      "ServiceName": "userapi"
+    },
+    {
+      "UseServiceDiscovery": true,
+      "UpstreamPathTemplate": "/usercolourapi/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "AzureADJwtBearer",
+        "AllowedScopes": []
+      },
+      "ServiceName": "usercolourapi"
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "ConfigurationKey":  "Ocelot", 
+      "Host": "consul",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  }
+}
