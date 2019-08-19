@@ -41,7 +41,7 @@ namespace auth_demo_gateway
 
             services.AddOcelot()
                 .AddConsul()
-                .AddDelegatingHandler<UserHandler>(true);
+                .AddDelegatingHandler<UserHandler>(false);
 
             services.AddDistributedRedisCache(options =>
             {

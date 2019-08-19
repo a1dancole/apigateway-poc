@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace auth_demo_gateway_api.Consul
+namespace auth_demo_gateway_api_2.Consul
 {
     public class ConsulConfig
     {

@@ -4,18 +4,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace auth_demo_gateway_api.Consul
+namespace auth_demo_gateway_api_2.Consul
 {
     public static class ConsulConfigExtensions
     {
-        public static ConsulConfig GetConsulConfig(this IConfiguration configuration)
+        public static auth_demo_gateway_api_2.Consul.ConsulConfig GetConsulConfig(this IConfiguration configuration)
         {
             if (configuration == null)
             {
                 throw new ArgumentNullException(nameof(configuration));
             }
 
-            var serviceConfig = new ConsulConfig
+            var serviceConfig = new auth_demo_gateway_api_2.Consul.ConsulConfig
             {
                 ServiceDiscoveryAddress = configuration.GetValue<Uri>("ServiceConfig:serviceDiscoveryAddress"),
                 ServiceAddress = configuration.GetValue<Uri>("ServiceConfig:serviceAddress"),
@@ -26,7 +26,7 @@ namespace auth_demo_gateway_api.Consul
             return serviceConfig;
         }
 
-        public static void RegisterConsulServices(this IServiceCollection services, ConsulConfig serviceConfig)
+        public static void RegisterConsulServices(this IServiceCollection services, auth_demo_gateway_api_2.Consul.ConsulConfig serviceConfig)
         {
             if (serviceConfig == null)
             {
@@ -40,7 +40,7 @@ namespace auth_demo_gateway_api.Consul
             services.AddSingleton<IConsulClient, ConsulClient>(provider => consulClient);
         }
 
-        private static ConsulClient CreateConsulClient(ConsulConfig serviceConfig)
+        private static ConsulClient CreateConsulClient(auth_demo_gateway_api_2.Consul.ConsulConfig serviceConfig)
         {
             return new ConsulClient(config =>
             {

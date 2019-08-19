@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "auth-demo-gateway-mvc": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}"
+    }
+  }
+}

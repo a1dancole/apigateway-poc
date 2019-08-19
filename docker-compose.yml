@@ -71,4 +71,23 @@ services:
       - "api.gateway"
     hostname: usercolourapi
     container_name: api-2
+
+  angularspa:
+    ports:
+      - "8090:80"
+      - "8091:443"
+    expose:
+      - "8090"
+      - "8091"
+    depends_on:
+      - consul
+      - api.gateway
+    build:
+      context: ./auth-demo-gateway-angularspa/
+      dockerfile: Dockerfile.compose
+    links:
+      - "consul"
+      - "api.gateway"
+    hostname: angularspa
+    container_name: angularspa
   

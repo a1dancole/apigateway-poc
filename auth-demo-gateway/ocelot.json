@@ -10,6 +10,9 @@
         "AuthenticationProviderKey": "AzureADJwtBearer",
         "AllowedScopes": []
       },
+      "DelegatingHandlers": [
+        "UserHandler"
+      ],
       "ServiceName": "userapi"
     },
     {
@@ -22,7 +25,25 @@
         "AuthenticationProviderKey": "AzureADJwtBearer",
         "AllowedScopes": []
       },
+      "DelegatingHandlers": [
+        "UserHandler"
+      ],
       "ServiceName": "usercolourapi"
+    },
+    {
+      "UseServiceDiscovery": true,
+      "UpstreamPathTemplate": "/angularspa/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS" ],
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "AzureADJwtBearer",
+        "AllowedScopes": []
+      },
+      "DelegatingHandlers": [
+        "UserHandler"
+      ],
+      "ServiceName": "angularspa"
     }
   ],
   "GlobalConfiguration": {

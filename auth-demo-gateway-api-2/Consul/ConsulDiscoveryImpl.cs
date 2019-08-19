@@ -3,15 +3,15 @@ using System.Threading.Tasks;
 using Consul;
 using Microsoft.Extensions.Hosting;
 
-namespace auth_demo_gateway_api.Consul
+namespace auth_demo_gateway_api_2.Consul
 {
     public class ServiceDiscoveryImpl : IHostedService
     {
         private readonly IConsulClient _client;
-        private readonly ConsulConfig _config;
+        private readonly auth_demo_gateway_api_2.Consul.ConsulConfig _config;
         private string _registrationId;
 
-        public ServiceDiscoveryImpl(IConsulClient client, ConsulConfig config)
+        public ServiceDiscoveryImpl(IConsulClient client, auth_demo_gateway_api_2.Consul.ConsulConfig config)
         {
             _client = client;
             _config = config;

@@ -32,7 +32,7 @@ namespace auth_demo_gateway_api_2.Controllers
 
             if (response == null) return NotFound();
 
-            return Ok(response);
+            return await Task.FromResult(Ok(response));
         }
     }
 
